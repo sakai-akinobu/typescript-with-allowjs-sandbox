@@ -4,11 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "compile": "npx tsc",
+    "build": "npx webpack --config webpack.config.js"
   },
   "author": "Akinobu SAKAI <sakai.akinobu@gmail.com> (https://github.com/sakai-akinobu)",
   "license": "MIT",
   "devDependencies": {
-    "typescript": "^3.2.2"
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/preset-flow": "^7.0.0",
+    "babel-loader": "^8.0.4",
+    "ts-loader": "^5.3.2",
+    "typescript": "^3.2.2",
+    "webpack": "^4.28.2",
+    "webpack-cli": "^3.1.2"
   }
 }
