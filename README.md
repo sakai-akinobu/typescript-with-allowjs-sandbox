@@ -1,6 +1,64 @@
 # typescript-with-allowjs-sandbox
 
+## Prerequisite
+
+**index.ts**
+```javascript
+import Foo from "./foo";
+
+Foo();
 ```
+
+**foo.js**
+```javascript
+// @flow
+function Foo() {
+  const list = ([1]: Array<number>); // Error!!
+  //const list = ([1]: number[]); // OK
+}
+
+export default Foo;
+```
+
+**tsconfig.json**
+```javascript
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "allowJs": true
+  }
+}
+```
+
+**webpack.config.js**
+
+```javascript
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        use: [
+          {loader: 'babel-loader'},
+        ],
+      },
+      {
+        test: /\.ts$/,
+        use: [
+          {loader: 'babel-loader'},
+          {loader: 'ts-loader'},
+        ],
+      },
+    ],
+  },
+  entry: './src/index.ts',
+  // ...
+};
+```
+
+## Result
+
+```sh
 npm run build
 
 > typescript-with-allowjs-sandbox@1.0.0 build /Users/nobyu/git/typescript-with-allowjs-sandbox
