@@ -2,6 +2,16 @@
 
 ## Prerequisite
 
+### Packages
+
+- webpack: 4.28.2
+- typescript: 3.2.2
+- ts-loader: 5.3.2
+- babel-loader: 8.0.4
+- @babel/core: 7.2.2
+- @babel/preset-env: 7.2.3
+- @babel/preset-flow: 7.0.0
+
 **index.ts**
 ```javascript
 import Foo from "./foo";
@@ -53,6 +63,17 @@ module.exports = {
   },
   entry: './src/index.ts',
   // ...
+};
+```
+
+**babel.config.js**
+
+```javascript
+module.exports = {
+  presets: [
+    '@babel/preset-env',
+    '@babel/preset-flow',
+  ],
 };
 ```
 
